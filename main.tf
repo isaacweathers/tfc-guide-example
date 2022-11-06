@@ -1,6 +1,15 @@
 provider "aws" {
   region = var.region
 }
+terraform {
+  cloud {
+    organization = "isaacweathersnet"
+
+    workspaces {
+      name = "basic-training"
+    }
+  }
+}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
